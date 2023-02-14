@@ -1,7 +1,7 @@
 import { cardBlog, minorCardBlog } from "../../constants";
 
 import { BackgroundImageAtom } from "../atomos/BackgroundImageAtom";
-import { SlideShowBlogAtom } from "../atomos/SlideShowBlogAtom";
+// import { SlideShowBlogAtom } from "../atomos/SlideShowBlogAtom";
 
 import { TextAtom } from "../atomos/TextAtom";
 import { BlogCardMolecule } from "../moleculas/BlogCardMolecule";
@@ -20,7 +20,7 @@ export function BlogOrganism() {
 
       <BlogCardMolecule />
 
-      <SlideShowBlogAtom />
+      {/* <SlideShowBlogAtom /> */}
     </div>
   );
 }
