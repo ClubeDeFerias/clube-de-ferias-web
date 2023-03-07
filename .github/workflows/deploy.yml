@@ -29,6 +29,9 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
           echo -e "Host vps\n\tUser $SSH_USERNAME\n\tHostname $SSH_HOST\n\tStrictHostKeyChecking No" >> ~/.ssh/config
+          echo "DEBUG: "
+          cat ~/.ssh/id_rsa
+          cat ~/.ssh/config
       - name: "Deploy to production"
         run: |
           rsync -ravzp dist $SSH_USERNAME@SSH_HOST:/var/www/html/new
