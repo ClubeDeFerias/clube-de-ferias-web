@@ -2,7 +2,7 @@ name: Deployment to VPS
 on:
   push:
     branches:
-      - CD
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
