@@ -27,7 +27,7 @@ jobs:
           mkdir -p ~/.ssh
           echo ${{ secrets.PRIVATE_KEY }} > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-        - name: Adding Known Hosts
-          run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-        - name: "Deploy to production"
-          run: rsync -ravzp ./dist/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/new/
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: "Deploy to production"
+        run: rsync -ravzp ./dist/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/html/new/
