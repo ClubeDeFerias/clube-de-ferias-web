@@ -24,7 +24,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
         run: |
-          echo "Username: $SSH_USERNAME"
           mkdir -p ~/.ssh
           echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
@@ -32,4 +31,4 @@ jobs:
           echo -e "Host vps\n\tUser $SSH_USERNAME\n\tHostname $SSH_HOST\n\tStrictHostKeyChecking No" >> ~/.ssh/config
       - name: "Deploy to production"
         run: |
-          rsync -ravzp dist vps:/var/www/html/new
+          rsync -ravzp dist $SSH_USERNAME@SSH_HOST:/var/www/html/new
