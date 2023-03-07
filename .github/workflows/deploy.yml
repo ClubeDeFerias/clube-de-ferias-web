@@ -23,5 +23,5 @@ jobs:
           remote: /var/www/html/new
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          privateKey: $${{ secrets.PRIVATE_KEY }}
+          privateKey: $${{ secrets.SSH_PRIVATE_KEY }}
       - run: echo "🍏 O status do job é ${{ job.status }}."
